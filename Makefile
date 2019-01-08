@@ -6,7 +6,7 @@ LUACPATH = $(PWDPATH)/../../libc
 # Edit the lines below to inform new path, if necessary.
 # Path below points to internal LuaSocket's help files.
 INCDIR    = -I. -I$(PWDPATH)/../../../3rd/skynet/3rd/lua
-LIBDIR    = -L/usr/lib64 -lcrypto -lssl
+LIBDIR    = -L/usr/lib -lcrypto -lssl
 
 # For Mac OS X: set the system version
 MACOSX_VERSION=10.11

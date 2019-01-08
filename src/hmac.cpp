@@ -62,7 +62,7 @@ static int lSha256 (lua_State *L)
         size_t keyLen = 0;
         const char* key = lua_tolstring(L, 2, &keyLen);
         unsigned char* output = NULL;
-        size_t outputLen = 0;
+        unsigned int outputLen = 0;
         int ret = HmacEncode("sha256", key, keyLen, msg, msgLen, &output, &outputLen);
         char* buf = (char*) malloc(outputLen * 2);
         char buf2[2] = {0};
@@ -88,7 +88,7 @@ static int lSha256 (lua_State *L)
     int ret = GoogleVerify::verifySignWithRsa(purchaseStr, signatureStr, EVP_sha1(), pubKey);
 */
         lua_pushinteger(L, ret);
-        lua_pushlstring(L, buf, outputLen * 2)
+        lua_pushlstring(L, buf, outputLen * 2);
         return 1;
 }
 
