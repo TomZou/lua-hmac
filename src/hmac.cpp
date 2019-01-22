@@ -70,23 +70,7 @@ static int lSha256 (lua_State *L)
                 sprintf(buf2, "%02x", output[i]);
                 strncpy(buf + i*2, buf2, 2);
         }
-/*  size_t purchaseLen = 0;
-    const char *purchaseData = lua_tolstring (L, 1, &purchaseLen);
-    size_t signatureLen = 0;
-    const char *signatureData = lua_tolstring (L, 2, &signatureLen);
-    size_t googlePubKeyLen = 0;
-    const char *googlePubKeyData = lua_tolstring (L, 3, &googlePubKeyLen);
 
-    string purchaseStr;
-    purchaseStr.assign((char*)purchaseData, purchaseLen);
-    string signatureStr;
-    signatureStr.assign((char*)signatureData, signatureLen);
-    string googlePubKeyStr;
-    googlePubKeyStr.assign((char*)googlePubKeyData, googlePubKeyLen);
-
-    EVP_PKEY* pubKey = GoogleVerify::getKeyByPKCS1(googlePubKeyStr, 0);
-    int ret = GoogleVerify::verifySignWithRsa(purchaseStr, signatureStr, EVP_sha1(), pubKey);
-*/
         lua_pushinteger(L, ret);
         lua_pushlstring(L, buf, outputLen * 2);
         return 1;
